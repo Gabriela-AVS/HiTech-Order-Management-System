@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?><Database Name="HiTechDb" Class="HiTechDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=YOUR_SERVER\SQLEXPRESS;Initial Catalog=HiTechDb;Integrated Security=True;Trust Server Certificate=True" SettingsObjectName="HiTechOrderManagementSystem.Properties.Settings" SettingsPropertyName="HiTechDbConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Categories" Member="Categories">
+    <Type Name="Category">
+      <Column Name="CategoryId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CategoryName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Category_Book" Member="Books" ThisKey="CategoryId" OtherKey="CategoryId" Type="Book" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Publishers" Member="Publishers">
+    <Type Name="Publisher">
+      <Column Name="PublisherId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PublisherName" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="WebAddress" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="Publisher_Book" Member="Books" ThisKey="PublisherId" OtherKey="PublisherId" Type="Book" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Books" Member="Books">
+    <Type Name="Book">
+      <Column Name="BookId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ISBN" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Booktitle" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitPrice" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="YearPublished" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="QOH" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PublisherId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Book_AuthorsBook" Member="AuthorsBooks" ThisKey="BookId" OtherKey="BookId" Type="AuthorsBook" />
+      <Association Name="Category_Book" Member="Category" ThisKey="CategoryId" OtherKey="CategoryId" Type="Category" IsForeignKey="true" />
+      <Association Name="Publisher_Book" Member="Publisher" ThisKey="PublisherId" OtherKey="PublisherId" Type="Publisher" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Authors" Member="Authors">
+    <Type Name="Author">
+      <Column Name="AuthorId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="Author_AuthorsBook" Member="AuthorsBooks" ThisKey="AuthorId" OtherKey="AuthorId" Type="AuthorsBook" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AuthorsBooks" Member="AuthorsBooks">
+    <Type Name="AuthorsBook">
+      <Column Name="BookId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AuthorId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="YearPublished" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Author_AuthorsBook" Member="Author" ThisKey="AuthorId" OtherKey="AuthorId" Type="Author" IsForeignKey="true" />
+      <Association Name="Book_AuthorsBook" Member="Book" ThisKey="BookId" OtherKey="BookId" Type="Book" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

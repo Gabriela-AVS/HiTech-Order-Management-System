@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="HiTechDB">
+  <DataContextMoniker Name="/HiTechDBDataContext" />
+  <nestedChildShapes>
+    <classShape Id="1c6e85a6-38e3-4bea-8a18-6dbdc1fc6ebb" absoluteBounds="1.5, 0.875, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/HiTechDBDataContext/Category" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a2593350-eafd-4739-8cae-da9263bb2fef" absoluteBounds="1.5150000000000001, 1.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4c0e02dd-5d2f-42dd-9316-418750958c4e" absoluteBounds="2.25, 4.625, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/HiTechDBDataContext/Publisher" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4d9968ac-e3b6-4c6f-ac7e-8e117c683af6" absoluteBounds="2.265, 5.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="60cdb8ac-00fb-4c57-b791-86629b1c8a27" absoluteBounds="3.875, 1.75, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/HiTechDBDataContext/Book" />
+      <nestedChildShapes>
+        <elementListCompartment Id="adec979a-5c3d-4982-969e-7aff1f446476" absoluteBounds="3.8900000000000006, 2.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="45cebc7a-7736-4ea2-81f7-f4476625adeb" absoluteBounds="5.25, 4.625, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/HiTechDBDataContext/Author" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8cdccfc1-021b-4b12-86b3-b362767eda86" absoluteBounds="5.2650000000000006, 5.085, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dd25f0f1-5dc4-48ad-813d-3a2789111851" absoluteBounds="6.625, 0.625, 2, 1.3862939453125003">
+      <DataClassMoniker Name="/HiTechDBDataContext/AuthorsBook" />
+      <nestedChildShapes>
+        <elementListCompartment Id="20f0a40c-941b-4e9b-a8f7-c06ff44b27f9" absoluteBounds="6.6400000000000006, 1.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 2.06899251302083); (2.5 : 3.08339730989583); (3.875 : 3.08339730989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/HiTechDBDataContext/Category/Category_Book" />
+      <nodes>
+        <classShapeMoniker Id="1c6e85a6-38e3-4bea-8a18-6dbdc1fc6ebb" />
+        <classShapeMoniker Id="60cdb8ac-00fb-4c57-b791-86629b1c8a27" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.0625 : 4.625); (4.0625 : 4.09780110677083)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/HiTechDBDataContext/Publisher/Publisher_Book" />
+      <nodes>
+        <classShapeMoniker Id="4c0e02dd-5d2f-42dd-9316-418750958c4e" />
+        <classShapeMoniker Id="60cdb8ac-00fb-4c57-b791-86629b1c8a27" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.9375 : 4.625); (6.9375 : 2.0112939453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/HiTechDBDataContext/Author/Author_AuthorsBook" />
+      <nodes>
+        <classShapeMoniker Id="45cebc7a-7736-4ea2-81f7-f4476625adeb" />
+        <classShapeMoniker Id="dd25f0f1-5dc4-48ad-813d-3a2789111851" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.875 : 3.08580002604167); (6.85416666666667 : 3.08580002604167 : JumpStart); (7.02083333333333 : 3.08580002604167 : JumpEnd); (7.8125025 : 3.08580002604167); (7.8125025 : 2.0112939453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/HiTechDBDataContext/Book/Book_AuthorsBook" />
+      <nodes>
+        <classShapeMoniker Id="60cdb8ac-00fb-4c57-b791-86629b1c8a27" />
+        <classShapeMoniker Id="dd25f0f1-5dc4-48ad-813d-3a2789111851" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
